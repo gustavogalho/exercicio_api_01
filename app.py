@@ -34,10 +34,10 @@ def lista_tarefas():
     if request.method == "GET":
         try:
             response = tarefas
-        except Exception:
+        except Exception as err:
             response = {
                 "status" : "erro",
-                "mensagem" : "teste de erro "
+                "mensagem" : "{} ".format(err)
             }
         return jsonify(response)
     elif request.method == "POST":
@@ -50,7 +50,7 @@ def lista_tarefas():
         except Exception as err:
             response = {
             "status" : "erro",
-            "mensagem" : "teste de erro {} ".format(err)
+            "mensagem" : "{} ".format(err)
             }
         return jsonify(response)
         
@@ -68,10 +68,10 @@ def tarefa(id):
                 "status" : "erro",
                 "mensagem" : "tarefa com a ID {} não encotrada" .format(id)
             }
-        except Exception:
+        except Exception as err:
             response = {
                 "status" : "erro",
-                "mensagem" : "teste de erro "
+                "mensagem" : "{} ".format(err)
             }
         return jsonify(response)
     elif request.method == "DELETE":
@@ -84,7 +84,7 @@ def tarefa(id):
         except Exception as err:
             response = {
             "status" : "erro",
-            "mensagem" : "teste de erro {} ".format(err)
+            "mensagem" : "{} ".format(err)
             }
         return jsonify(response)
     elif request.method == "PUT":
@@ -98,7 +98,7 @@ def tarefa(id):
         except Exception as err:
             response = {
             "status" : "erro",
-            "mensagem" : "teste de erro {} ".format(err)
+            "mensagem" : "{} ".format(err)
             }
         return jsonify(response)
 
